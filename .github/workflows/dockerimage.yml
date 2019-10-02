@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+    - name: login to docker registry
+      run: docker login docker.pkg.github.com --username hkeeler --password ${{ secrets.GITHUB_DOCKER_PASSWORD }}
+    - name: build image
+      run: docker build . --tag docker.pkg.github.com/hkeeler/jenkins-docker/jenkins:latest
+      env:
+        DOCKER_BUILDKIT: 1
+    - name: push image to registry
+      run: docker push docker.pkg.github.com/hkeeler/jenkins-docker/jenkins:latest
