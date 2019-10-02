@@ -1,0 +1,10 @@
+amazon-ecs:latest
+ansicolor:latest
+blueocean:latest
+configuration-as-code:latest
+configuration-as-code-support:latest
+credentials-binding:latest
+docker-workflow:latest
+job-dsl:latest
+timestamper:latest
+workflow-aggregator:latest
